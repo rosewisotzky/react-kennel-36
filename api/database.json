@@ -10,5 +10,33 @@
       "name": "Esme",
       "breed": "Pitbull"
     }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "address": "500 Interstate Blvd S"
+    },
+    {
+      "id": 2,
+      "address": "301 Plus Park Blvd"
+    },
+    {
+      "id": 3,
+      "address": "912 Virginia Avenue"
+    }
   ]
 }

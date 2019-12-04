@@ -5,7 +5,11 @@ import AnimalList from './animal/AnimalList'
 import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animal/AnimalForm'
 import AnimalEditForm from './animal/AnimalEditForm'
+import EmployeeList from './employee/EmployeeList'
+import EmployeeDetail from './employee/EmployeeDetails'
+import LocationList from './location/LocationList'
 import Login from './auth/Login'
+import LocationDetail from "./location/LocationDetail"
 
 
 //only include these once they are built - previous practice exercise
@@ -39,11 +43,37 @@ class ApplicationViews extends Component {
           />
         }} />
         <Route path="/animals/:animalId(\d+)/edit" render={props => {
-            return <AnimalEditForm {...props} />
-          }}
+          return <AnimalEditForm {...props} />
+        }}
         />
         <Route path="/animals/new" render={(props) => {
           return <AnimalForm {...props} />
+        }} />
+        <Route exact path="/employees" render={props => {
+          if (this.isAuthenticated()) {
+            return <EmployeeList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
+          return <EmployeeDetail
+            employeeId={parseInt(props.match.params.employeeId)}
+            {...props}
+          />
+        }} />
+        <Route exact path="/locations" render={props => {
+          if (this.isAuthenticated()) {
+            return <LocationList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route exact path="/locations/:locationId(\d+)" render={(props) => {
+          return <LocationDetail
+            locationId={parseInt(props.match.params.locationId)}
+            {...props}
+            />
         }} />
 
         <Route path="/login" component={Login} />
